@@ -5,10 +5,16 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
   })
   .then(function (data) {
     console.log(data);
-    for (let i = 0; i < data.data.results.length; i++) {
-
-    }
-
-
+    
+   for(let i = 0; i < data.data.results.length; i++){
+   	//console.log(i);
+   	//console.log(data.data.results[i].comics);
+   	console.log(data.data.results[0].thumbnail);
+   	let path = data.data.results[0].thumbnail.path;
+   	//console.log(data.data.results[0].thumbnail.path);
+   	let extension = data.data.results[0].thumbnail.extension;
+   	console.log(path +'.' +extension);
+   	
+   }
     //Sección donde aparecerán los resultados
   });
