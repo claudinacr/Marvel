@@ -1,15 +1,21 @@
 *{
 
 }
-body{
-  background-image: url('../images/fondo.jpeg');
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-size: cover;
-  background-position: bottom;
-}
+
 header{
     background-color: #E6E6E6;
     font-size: 2em;
     text-align: center;
 }
+
+.imagen{
+  width: 20em;
+  display: inline;
+  padding: 1em;
+}
+
+.results{
+  text-align: center;
+}
+
+
