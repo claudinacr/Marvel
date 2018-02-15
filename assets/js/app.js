@@ -16,8 +16,5 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
    	console.log(path +'.' +extension);
    	
    }
-
-  
-
     //Sección donde aparecerán los resultados
   });
