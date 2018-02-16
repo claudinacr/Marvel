@@ -4,12 +4,11 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
     return response.json();
   })
   .then(function (data) {
-    console.log(data.data.results);
+    // console.log(data.data.results);
     let array = [];
     for (let j = 0; j < marvel.length; j++) {
       array.push(marvel[j].title);
     }
-    let ul = document.createElement('ul');
     let imagen = document.querySelector('.imagen');
     for (let i = 0; i < data.data.results.length; i++) {
       let title = data.data.results[i].title;
@@ -34,25 +33,53 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
         boxText.appendChild(p);
         box.appendChild(boxImage);
         box.appendChild(boxText);
+        box.setAttribute('name', title);
         imagen.appendChild(box);
         box.addEventListener('click', function (event) {
           let objetivo = event.target.getAttribute('src');
-          console.log(objetivo);
-         for (let k = 0; k < marvel.length; k++) {
-           if (objetivo === marvel[k].image) {
-             let textInfo = marvel.text;
-             let myModalLabel = document.querySelector('#myModalLabel');
-             myModalLabel.innerHTML='';
-             let titlee = data.data.results[k].title;
-             myModalLabel.appendChild(document.createTextNode(titlee));
-           }
-         }
+          // console.log(objetivo);
+          for (let k = 0; k < marvel.length; k++) {
+            if (objetivo === marvel[k].image) {
+              let textInfo = marvel.text;
+              let myModalLabel = document.querySelector('#myModalLabel');
+              myModalLabel.innerHTML = '';
+              let titlee = data.data.results[k].title;
+              myModalLabel.appendChild(document.createTextNode(titlee));
+              let boxImagem = document.createElement('div');
+              let Imagem = document.createElement('img');
+              Imagem.setAttribute('src', marvel[k].image)
+              boxImagem.appendChild(Imagem);
+              let modalbody = document.querySelector('.modal-body');
+              modalbody.innerHTML = '';
+              modalbody.appendChild(boxImagem);
+              //  let editor = data.data.results[k];
+              //  console.log(editor);
+            }
+          }
         });
-        
+
+
+
       }
-      
+
     }
 
-    
-  });
+    let formcontrol = document.querySelector('.form-control');
+    formcontrol.addEventListener('keyup', function () {
+      let valor = formcontrol.value;
+      let imagenee = document.querySelector('.imagen');
+      let boxx = document.querySelectorAll('.box');
+      for (let marvel = 0; marvel < boxx.length; marvel++) {
+        if (valor === boxx[marvel].getAttribute('name')) {
+          boxx[marvel].style.display='inline';
 
+        } else{
+          boxx[marvel].style.display='none';
+
+        }
+        
+      }
+
+
+    });
+  });
