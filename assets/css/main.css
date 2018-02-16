@@ -42,3 +42,15 @@ p {
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.modal-content {
+    position: absolute;
+    width: 40em;
+    height: 30em;
+    text-align: center;
+  }
+
+  
+  
+  
+  
