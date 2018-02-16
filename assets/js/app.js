@@ -1,13 +1,10 @@
-
-
-
 fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f9666a6f50&ts=9&hash=62865700f7c07e460304b6c2ceb6bf1a')
   .then(function (response) {
     //Turns the the JSON into a JS object
     return response.json();
   })
   .then(function (data) {
-    // console.log(data.data.results);
+    //  console.log(data.data.results);
     let array = [];
     for (let j = 0; j < marvel.length; j++) {
       array.push(marvel[j].title);
@@ -16,7 +13,8 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
     for (let i = 0; i < data.data.results.length; i++) {
       let title = data.data.results[i].title;
       if (title === array[i]) {
-        let box = document.createElement('div');
+        
+        let box=document.createElement('div');
         box.className = 'box';
         box.setAttribute('data-toggle', 'modal');
         box.setAttribute('data-target', '#miModal');
@@ -44,6 +42,7 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
           for (let k = 0; k < marvel.length; k++) {
             if (objetivo === marvel[k].image) {
               let textInfo = marvel.text;
+
               let myModalLabel = document.querySelector('#myModalLabel');
               myModalLabel.innerHTML = '';
               let titlee = data.data.results[k].title;
@@ -74,18 +73,14 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
       let boxx = document.querySelectorAll('.box');
       for (let marvel = 0; marvel < boxx.length; marvel++) {
         if (valor === boxx[marvel].getAttribute('name')) {
-          boxx[marvel].style.display='inline';
+          boxx[marvel].style.display = 'inline';
 
-        } else{
-          boxx[marvel].style.display='none';
+        } else {
+          boxx[marvel].style.display = 'none';
         }
-        
       }
-
       if (valor === '') {
         location.reload();
       }
-
-
     });
   });
