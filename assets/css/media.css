@@ -1,0 +1,9 @@
+@media (min-width:0px) and (max-width: 800px) {
+    img[src="assets/images/logo-legacy_dark-cf7dbbfdb8.jpg"]{
+        width: 10em;
+    }
+}
+
+@media (max-width: 549px) {
+
+}

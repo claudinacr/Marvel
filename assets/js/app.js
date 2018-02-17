@@ -4,7 +4,7 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
     return response.json();
   })
   .then(function (data) {
-     console.log(data.data.results);
+    //  console.log(data.data.results);
     let array = [];
     for (let j = 0; j < marvel.length; j++) {
       array.push(marvel[j].title);
@@ -72,9 +72,10 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
       let imagenee = document.querySelector('.imagen');
       let boxx = document.querySelectorAll('.box');
       for (let marvel = 0; marvel < boxx.length; marvel++) {
-        if (valor === boxx[marvel].getAttribute('name')) {
+        let compare = boxx[marvel].getAttribute('name');
+        var regex = new RegExp(valor, 'i');
+        if (regex.test(compare) === true){
           boxx[marvel].style.display = 'inline';
-
         } else {
           boxx[marvel].style.display = 'none';
         }
