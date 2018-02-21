@@ -4,7 +4,7 @@ fetch('http://gateway.marvel.com/v1/public/comics?apikey=fd35aba799605ca550a4c2f
     return response.json();
   })
   .then(function (data) {
-    //  console.log(data.data.results);
+     console.log(data.data.results);
     let array = [];
     for (let j = 0; j < marvel.length; j++) {
       array.push(marvel[j].title);
